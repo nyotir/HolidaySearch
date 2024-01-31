@@ -15,3 +15,6 @@
 /HolidaySearch/packages
 /HolidaySearch/HolidaySearch.DataContracts/bin/Debug/net7.0
 /HolidaySearch/HolidaySearch.DataContracts/obj
+/HolidaySearch/HolidaySearch.API/bin/Debug/net7.0
+/HolidaySearch/HolidaySearch.API/obj
+*.user

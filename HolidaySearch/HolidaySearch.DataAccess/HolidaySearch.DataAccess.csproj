@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\Airports.json" />
+    <None Remove="Data\Flights.json" />
+    <None Remove="Data\Hotels.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Airports.json" />
+    <EmbeddedResource Include="Data\Flights.json" />
+    <EmbeddedResource Include="Data\Hotels.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
