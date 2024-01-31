@@ -44,6 +44,25 @@ Optionally, configuration options can be provided for enabling/disabling caching
 
 ## Important
 The implementation is designed to be asynchronous end-to-end, emphasizing that all database calls should be asynchronous. However, in the current scenario where data is small and retrieved from JSON, the use of asynchronous operations may not yield significant benefits.
+Also, in the original data provided, there are duplicate records for hotels. These are not changed. So final output will contain some duplicate data. 
+e.g.
+  {
+    "id": 3,
+    "name": "Sol Katmandu Park & Resort",
+    "arrival_date": "2023-06-15",
+    "price_per_night": 59,
+    "local_airports": [ "PMI" ],
+    "nights": 14
+  },
+  {
+    "id": 4,
+    "name": "Sol Katmandu Park & Resort",
+    "arrival_date": "2023-06-15",
+    "price_per_night": 59,
+    "local_airports": [ "PMI" ],
+    "nights": 14
+  }
+Logic to avoid duplicate data is not implemented.
 
 ## Getting Started
 To use the HolidaySearch library in your project:
