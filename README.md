@@ -8,19 +8,22 @@ HolidaySearch is a .NET class library project that provides a modular and plugga
 
 ### HolidaySearch.Application
 
-Contains the application layer logic.
-Has business logic and orchestrate data access.
+Contains the application layer logic and orchestrates data access.
 
 ### HolidaySearch.DataAccess
 
 Pluggable data access layer.
-The default implementation reads data from JSON files.
-Can be replaced with other data layers such as SQL or any custom implementation.
+The default implementation reads the data from JSON files.
+It can be replaced with other data layers such as SQL or any custom implementation.
 
 ### HolidaySearch.Models
 
 Defines the data models used throughout the application.
 Encapsulates the structure of entities like Flights, Hotels etc.
+
+### HolidaySearch.DataContracts
+
+Defines the data contracts used for request and response.
 
 ### HolidaySearch.Tests
 
@@ -28,19 +31,18 @@ Includes unit tests
 
 ### HolidaySearch.API
 
-Provides an API layer for quick end-to-end integration testing.Demonstrates how the library can be consumed in a real-world scenario.
+Provides an API layer for quick end-to-end integration testing. It also demonstrates how the library can be consumed in a real-world scenario.
 
-## To replace the data layer:
+## To replace the data layer
 
 Create a new data layer implementing the IDataReader interface.
-Update the DataAccessFactory in the HolidaySearch.Application to return an instance of your data layer.
 
-## Caching:
+## Caching
 
 Caching mechanism can be integrated into the application layer particularly to cache the airport data, as it is accessed frequently.
-Optionally, provide configuration options can be provided for enabling/disabling caching.
+Optionally, configuration options can be provided for enabling/disabling caching.
 
-## Important:
+## Important
 The implementation is designed to be asynchronous end-to-end, emphasizing that all database calls should be asynchronous. However, in the current scenario where data is small and retrieved from JSON, the use of asynchronous operations may not yield significant benefits.
 
 ## Getting Started
