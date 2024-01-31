@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\HolidaySearch.DataContracts\HolidaySearch.DataContracts.csproj" />
-  </ItemGroup>
-
 </Project>
