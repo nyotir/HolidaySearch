@@ -1,0 +1,32 @@
+[
+  {
+    "key": "Mallorca Airport (PMI)",
+    "tags": [ "Mallorca Airport (PMI)", "PMI" ],
+    "value": [ "PMI" ]
+  },
+  {
+    "key": "Manchester Airport (MAN)",
+    "tags": [ "Manchester Airport (MAN)", "MAN" ],
+    "value": [ "MAN" ]
+  },
+  {
+    "key": "Malaga Airport (AGP)",
+    "tags": [ "Malaga Airport (AGP)", "AGP" ],
+    "value": [ "AGP" ]
+  },
+  {
+    "key": "Gran Canaria Airport (LPA)",
+    "tags": [ "Gran Canaria Airport (LPA)", "LPA" ],
+    "value": [ "LPA" ]
+  },
+  {
+    "key": "Any London Airport",
+    "tags": [ "Any London Airport", "LTN", "LGW" ],
+    "value": [ "LTN", "LGW" ]
+  },
+  {
+    "key": "London Gatwick (LGW)",
+    "tags": [ "London Gatwick (LGW)", "LGW" ],
+    "value": [ "LGW" ]
+  }
+]
