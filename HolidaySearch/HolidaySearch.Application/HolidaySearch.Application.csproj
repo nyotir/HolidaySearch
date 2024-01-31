@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HolidaySearch.DataContracts\HolidaySearch.DataContracts.csproj" />
+    <ProjectReference Include="..\HolidaySearch.Models\HolidaySearch.Models.csproj" />
   </ItemGroup>
 
 </Project>

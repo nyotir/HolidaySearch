@@ -1,4 +1,5 @@
 ﻿using HolidaySearch.DataContracts;
+using Flight = HolidaySearch.Models.Flight;
 
 namespace HolidaySearch.Application
 {
