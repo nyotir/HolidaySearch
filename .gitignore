@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/HolidaySearch/.vs
+/HolidaySearch/HolidaySearch.Application/bin/Debug/net7.0
+/HolidaySearch/HolidaySearch.Application/obj
+/HolidaySearch/HolidaySearch.DataAccess/bin/Debug/net7.0
+/HolidaySearch/HolidaySearch.DataAccess/obj
+/HolidaySearch/HolidaySearch.Models/bin/Debug/net7.0
+/HolidaySearch/HolidaySearch.Models/obj
+/HolidaySearch/HolidaySearch.Tests/bin/Debug/net7.0
+/HolidaySearch/HolidaySearch.Tests/obj
+/HolidaySearch/packages
