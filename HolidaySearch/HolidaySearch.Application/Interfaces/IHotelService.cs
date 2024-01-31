@@ -1,7 +1,7 @@
 ﻿using HolidaySearch.DataContracts;
 using Hotel = HolidaySearch.Models.Hotel;
 
-namespace HolidaySearch.Application
+namespace HolidaySearch.Application.Interfaces
 {
     public interface IHotelService
     {

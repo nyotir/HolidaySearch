@@ -1,6 +1,7 @@
-﻿using HolidaySearch.DataContracts;
+﻿using HolidaySearch.Application.Interfaces;
+using HolidaySearch.DataContracts;
 
-namespace HolidaySearch.Application
+namespace HolidaySearch.Application.Implementations
 {
     public class SearchService : ISearchService
     {

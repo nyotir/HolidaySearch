@@ -1,7 +1,7 @@
 ﻿using HolidaySearch.DataContracts;
 using Flight = HolidaySearch.Models.Flight;
 
-namespace HolidaySearch.Application
+namespace HolidaySearch.Application.Interfaces
 {
     public interface IFlightService
     {

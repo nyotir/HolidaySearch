@@ -1,6 +1,6 @@
 ﻿using HolidaySearch.DataContracts;
 
-namespace HolidaySearch.Application
+namespace HolidaySearch.Application.Interfaces
 {
     public interface ISearchService
     {

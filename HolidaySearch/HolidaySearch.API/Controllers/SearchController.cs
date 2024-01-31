@@ -1,4 +1,4 @@
-using HolidaySearch.Application;
+using HolidaySearch.Application.Interfaces;
 using HolidaySearch.DataContracts;
 using Microsoft.AspNetCore.Mvc;
 

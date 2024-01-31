@@ -1,7 +1,5 @@
-using HolidaySearch.Application;
 using HolidaySearch.Application.Implementations;
 using HolidaySearch.Application.Interfaces;
-using HolidaySearch.DataAccess;
 using HolidaySearch.DataAccess.Implementations;
 using HolidaySearch.DataAccess.Interfaces;
 

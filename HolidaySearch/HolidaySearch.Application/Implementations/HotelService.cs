@@ -1,9 +1,9 @@
 ﻿using HolidaySearch.Application.Interfaces;
-using HolidaySearch.DataAccess;
+using HolidaySearch.DataAccess.Interfaces;
 using HolidaySearch.DataContracts;
 using Hotel = HolidaySearch.Models.Hotel;
 
-namespace HolidaySearch.Application
+namespace HolidaySearch.Application.Implementations
 {
     public class HotelService : IHotelService
     {

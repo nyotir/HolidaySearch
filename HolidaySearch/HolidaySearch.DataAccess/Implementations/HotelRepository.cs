@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HolidaySearch.DataAccess.Interfaces;
+﻿using HolidaySearch.DataAccess.Interfaces;
 using HolidaySearch.Models;
 
-namespace HolidaySearch.DataAccess
+namespace HolidaySearch.DataAccess.Implementations
 {
     public class HotelRepository : IHotelRepository
     {

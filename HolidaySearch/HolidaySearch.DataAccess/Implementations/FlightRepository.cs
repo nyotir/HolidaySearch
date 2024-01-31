@@ -1,7 +1,7 @@
 ﻿using HolidaySearch.DataAccess.Interfaces;
 using HolidaySearch.Models;
 
-namespace HolidaySearch.DataAccess
+namespace HolidaySearch.DataAccess.Implementations
 {
     public class FlightRepository : IFlightRepository
     {

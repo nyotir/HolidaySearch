@@ -3,7 +3,7 @@ using HolidaySearch.DataAccess.Interfaces;
 using HolidaySearch.DataContracts;
 using Flight = HolidaySearch.Models.Flight;
 
-namespace HolidaySearch.Application
+namespace HolidaySearch.Application.Implementations
 {
     public class FlightService : IFlightService
     {
@@ -31,5 +31,5 @@ namespace HolidaySearch.Application
             return searchResults?.OrderBy(p => p.Price);
         }
     }
-    
+
 }

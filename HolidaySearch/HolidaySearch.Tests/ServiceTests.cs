@@ -1,15 +1,13 @@
-﻿using HolidaySearch.Application;
-using HolidaySearch.Application.Implementations;
+﻿using HolidaySearch.Application.Implementations;
 using HolidaySearch.Application.Interfaces;
+using HolidaySearch.DataAccess.Implementations;
 using HolidaySearch.DataAccess.Interfaces;
 using HolidaySearch.DataContracts;
-using Flight = HolidaySearch.Models.Flight;
-using Hotel = HolidaySearch.Models.Hotel;
+using HolidaySearch.Models;
 using Moq;
 using Xunit;
-using HolidaySearch.DataAccess;
-using HolidaySearch.DataAccess.Implementations;
-using HolidaySearch.Models;
+using Flight = HolidaySearch.Models.Flight;
+using Hotel = HolidaySearch.Models.Hotel;
 
 namespace HolidaySearch.Tests
 {
@@ -93,6 +91,17 @@ namespace HolidaySearch.Tests
             return Task.FromResult(hotelList);
         }
 
+        [Theory, ClassData(typeof(SearchRequestData))]
+        public async Task MultipleValidInputs_ReturnCorrectResults(SearchTestData testData)
+        {
+            ValidSetup();
+
+            var response = await _searchService.SearchHoliday(testData.Request);
+
+            Assert.Equal(testData.Response.SearchResult.Count, response.SearchResult.Count);
+            Assert.Equal(testData.Response.TotalHotels, response.TotalHotels);
+            Assert.Equal(testData.Response.TotalFlights, response.TotalFlights);
+        }
 
         [Fact]
         public async Task ValidInput_ReturnsCorrectResults()
@@ -133,7 +142,7 @@ namespace HolidaySearch.Tests
             Assert.Equal(411, response.SearchResult[1].TotalPrice);
         }
 
-       
+
         [Fact]
         public async Task NonSpecificDepartureAirport_ReturnsDataForAllDepartureAirports()
         {
