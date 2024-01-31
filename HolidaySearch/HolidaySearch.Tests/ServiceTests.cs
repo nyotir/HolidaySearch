@@ -12,27 +12,32 @@ namespace HolidaySearch.Tests
     public class ServiceTests
     {
         private readonly Mock<IDataReader<Flight>> _flightDataReader;
+        private readonly Mock<IDataReader<Hotel>> _hotelDataReader;
+
         private readonly IFlightRepository _flightRepository;
+        private readonly IHotelRepository _hotelRepository;
 
         private readonly ISearchService _searchService;
         private readonly IFlightService _flightService;
-        private readonly Mock<IHotelService> _hotelService;
+        private readonly IHotelService _hotelService;
 
         public ServiceTests()
         {
             _flightDataReader = new Mock<IDataReader<Flight>>();
-
             _flightRepository = new FlightRepository(_flightDataReader.Object);
             _flightService = new FlightService(_flightRepository);
 
-            _hotelService = new Mock<IHotelService>();
-            _searchService = new SearchService(_hotelService.Object, _flightService);
+            _hotelDataReader = new Mock<IDataReader<Hotel>>();
+            _hotelRepository = new HotelRepository(_hotelDataReader.Object);
+            _hotelService = new HotelService(_hotelRepository);
+
+            _searchService = new SearchService(_hotelService, _flightService);
         }
 
         private void ValidSetup()
         {
             _flightDataReader.Setup(f => f.Read(It.IsAny<string>())).Returns(GetFlights);
-            _hotelService.Setup(f => f.SearchHotels(It.IsAny<SearchRequest>())).Returns(GetHotels);
+            _hotelDataReader.Setup(f => f.Read(It.IsAny<string>())).Returns(GetHotels);
         }
 
         private Task<List<Flight>> GetFlights()
@@ -50,7 +55,7 @@ namespace HolidaySearch.Tests
             return Task.FromResult(flightList);
         }
 
-        private Task<IEnumerable<Hotel>> GetHotels()
+        private Task<List<Hotel>> GetHotels()
         {
             var hotelList = new List<Hotel>
             {
@@ -59,7 +64,7 @@ namespace HolidaySearch.Tests
                 new () { Id = 3, ArrivalDate = DateTime.Parse("2023-07-01"), LocalAirports = new List<string> { "AGP" }, Name = "Nh Malaga", Nights = 7, PricePerNight = 83.00 },
                 new () { Id = 4, ArrivalDate = DateTime.Parse("2023-06-15"), LocalAirports = new List<string> { "PMI" }, Name = "Jumeirah Port Soller", Nights = 10, PricePerNight = 295.00 },
             };
-            return Task.FromResult(hotelList.AsEnumerable());
+            return Task.FromResult(hotelList);
         }
 
 
@@ -78,8 +83,8 @@ namespace HolidaySearch.Tests
 
             var response = await _searchService.SearchHoliday(request);
 
-            Assert.Equal(8, response.SearchResult.Count);
-            Assert.Equal(4, response.TotalHotels);
+            Assert.Equal(2, response.SearchResult.Count);
+            Assert.Equal(1, response.TotalHotels);
             Assert.Equal(2, response.TotalFlights);
         }
 
@@ -98,9 +103,8 @@ namespace HolidaySearch.Tests
 
             var response = await _searchService.SearchHoliday(request);
 
-            Assert.Equal(240, response.SearchResult.FirstOrDefault().TotalPrice);
-            Assert.Equal(306, response.SearchResult[1].TotalPrice);
-            Assert.Equal(340, response.SearchResult[2].TotalPrice);
+            Assert.Equal(306, response.SearchResult.FirstOrDefault().TotalPrice);
+            Assert.Equal(411, response.SearchResult[1].TotalPrice);
         }
 
        
@@ -117,7 +121,7 @@ namespace HolidaySearch.Tests
                 TravelingTo = "PMI"
             };
             var response = await _searchService.SearchHoliday(request);
-            Assert.Equal(4, response.TotalHotels);
+            Assert.Equal(1, response.TotalHotels);
             Assert.Equal(0, response.TotalFlights);
         }
 
